@@ -1,15 +1,14 @@
-<form
-  action="https://formspree.io/f/xjkgelow"
-  method="POST"
->
-  <label>
-    Your email:
-    <input type="email" name="email">
-  </label>
-  <label>
-    Your message:
-    <textarea name="message"></textarea>
-  </label>
-  <!-- your other form fields go here -->
-  <button type="submit">Send</button>
+<form action="https://formspree.io/f/xjkgelow" method="POST">
+    <input type="hidden" name="_next" value="https://ton-site.com/merci.html">
+    
+    <label>Nom :</label>
+    <input type="text" name="name" required><br><br>
+
+    <label>Email :</label>
+    <input type="email" name="email" required><br><br>
+
+    <label>Message :</label>
+    <textarea name="message" required></textarea><br><br>
+
+    <button type="submit">Envoyer</button>
 </form>
