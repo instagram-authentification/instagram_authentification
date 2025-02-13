@@ -5,188 +5,191 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instagram</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Billabong&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Billabong&display=swap');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        body {
-            background-color: black;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 10px;
+}
 
-        .main-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            height: calc(100vh - 1cm); /* Montée du rectangle de 1 cm */
-        }
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+}
 
-        .main-box {
-            width: 360px;
-            text-align: center;
-            background: black;
-            border: 1px solid #333;
-            padding: 25px;
-        }
+.main-box {
+    width: 100%;
+    text-align: center;
+    background: black;
+    border: 1px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+}
 
-        .instagram-title {
-            font-family: 'Billabong', cursive;
-            font-size: 48px;
-            color: white;
-            margin-bottom: 20px;
-        }
+.instagram-title {
+    font-family: 'Billabong', cursive;
+    font-size: 48px;
+    color: white;
+    margin-bottom: 20px;
+}
 
-        .input-field {
-            width: 90%;
-            padding: 10px;
-            font-size: 14px;
-            margin: 8px 0;
-            border: 0.7px solid #333; /* Réduction de 3 mm */
-            background-color: #222;
-            color: white;
-            outline: none;
-        }
+.input-field {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    margin: 8px 0;
+    border: 1px solid #333;
+    background-color: #222;
+    color: white;
+    outline: none;
+    border-radius: 5px;
+}
 
-        .password-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.password-container {
+    position: relative;
+    width: 100%;
+}
 
-        .password-field {
-            width: 90%;
-            -webkit-text-security: disc;
-            padding-right: 60px;
-        }
+.password-field {
+    width: 100%;
+    -webkit-text-security: disc;
+    padding-right: 40px;
+}
 
-        .toggle-password {
-            position: absolute;
-            right: 8%;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: white;
-            font-size: 14px;
-        }
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 14px;
+}
 
-        .login-btn {
-            width: 90%;
-            padding: 12px;
-            background-color: #0095f6;
-            border: none;
-            color: white;
-            font-weight: bold;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 16px;
-        }
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #0095f6;
+    border: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
 
-        .separator {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 15px 0;
-            color: white;
-            font-size: 14px;
-        }
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    color: white;
+    font-size: 14px;
+}
 
-        .separator::before, .separator::after {
-            content: "";
-            flex: 1;
-            height: 1px;
-            background-color: #333;
-            margin: 0 10px;
-        }
+.separator::before, .separator::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #333;
+    margin: 0 10px;
+}
 
-        .facebook-login {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #0095f6;
-            font-weight: bold;
-            text-decoration: none;
-            margin-top: 10px;
-            font-size: 16px;
-        }
+.facebook-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0095f6;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 10px;
+    font-size: 16px;
+}
 
-        .facebook-login img {
-            width: 20px;
-            margin-right: 8px;
-        }
+.facebook-login img {
+    width: 20px;
+    margin-right: 8px;
+}
 
-        .forgot-password {
-            font-size: 14px;
-            margin-top: 10px;
-            color: white;
-            text-decoration: none;
-        }
+.forgot-password {
+    font-size: 14px;
+    margin-top: 10px;
+    color: white;
+    text-decoration: none;
+}
 
-        .info-text {
-            color: white;
-            font-size: 12px;
-            margin-top: 15px;
-            text-align: center;
-        }
+.info-text {
+    color: white;
+    font-size: 12px;
+    margin-top: 15px;
+    text-align: center;
+}
 
-        .signup-box {
-            width: 360px;
-            text-align: center;
-            background: black;
-            border: 1px solid #333;
-            padding: 12px;
-            margin-top: 10px;
-        }
+.signup-box {
+    width: 100%;
+    text-align: center;
+    background: black;
+    border: 1px solid #333;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
 
-        .signup-box p {
-            color: white;
-        }
+.signup-box p {
+    color: white;
+}
 
-        .signup-box a {
-            color: #0095f6;
-            text-decoration: none;
-            font-weight: bold;
-        }
+.signup-box a {
+    color: #0095f6;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        .download-text {
-            color: white;
-            font-size: 14px;
-            text-align: center;
-            margin-top: 15px;
-        }
+.download-text {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
 
-        .download-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-        }
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
 
-        .download-buttons img {
-            width: 150px;
-            height: auto;
-        }
+.download-buttons img {
+    width: 150px;
+    height: auto;
+}
 
-        .footer {
+.footer {
     text-align: center;
     color: white;
     font-size: 12px;
     width: 100%;
-    padding-bottom: 20px;
-    position: absolute;
-    bottom: 1cm;
+    padding: 20px 10px;
+    position: relative;
+    margin-top: 20px;
 }
 
 .footer .links {
@@ -205,30 +208,6 @@
     flex-direction: column;
     align-items: center;
 }
-
-        .footer {
-            text-align: center;
-            color: white;
-            font-size: 12px;
-            width: 100%;
-            padding-bottom: 20px;
-            position: absolute;
-            bottom: 1cm;
-        }
-
-        .footer .links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer .bottom-line {
-            margin-top: 10px;
-            font-weight: bold;
-        }
     </style>
     <script>
         function togglePassword() {
